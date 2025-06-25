@@ -1,0 +1,36 @@
+<h1>Reporte Pedido por Camión</h1>
+
+<form method="GET" action="/reporte/pedido-por-camion">
+    <label>Fecha Inicio:</label>
+    <input type="date" name="fechaInicio" required>
+
+    <label>Fecha Final:</label>
+    <input type="date" name="fechaFinal" required>
+
+    <button type="submit">Ver Reporte</button>
+</form>
+
+<table border="1" style="margin-top:20px;">
+    <thead>
+        <tr>
+            <th>Placa</th>
+            <th>Total Peso Transportado</th>
+            <th>Total Volumen Transportado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (pedidos.length === 0) { %>
+            <tr>
+                <td colspan="3">No hay datos para mostrar</td>
+            </tr>
+        <% } else { %>
+            <% pedidos.forEach(pedido => { %>
+                <tr>
+                    <td><%= pedido.Placa %></td>
+                    <td><%= pedido.total_peso_trasportado %></td>
+                    <td><%= pedido.total_volumen_trasportado %></td>
+                </tr>
+            <% }) %>
+        <% } %>
+    </tbody>
+</table>

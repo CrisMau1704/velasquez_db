@@ -1,0 +1,26 @@
+<h1>CAMIONES NO UTILIZADOS</h1>
+<form method="GET" action="/reporte/camiones-no-utilizados">
+    <label for="">fecha inicio</label>
+    <input placeholder="ingrese fecha inicio" type="date" name="fechaInicio" >
+
+    <label for="">fecha final</label>
+    <input placeholder="ingrese fecha final" type="date" name="fechaFinal">
+
+    <button type="submit">Ver reporte</button>
+</form>
+<table>
+    <tr>
+        <th>Placa</th>
+        <th>Max Peso</th>
+        <th>Max Volumen</th>
+    </tr>
+    <% camiones.forEach(c => { %>
+        <tr>
+        <td><%- c.Placa %></td>
+        <td><%- c.maxpeso %></td>
+        <td><%- c.maxvolumen %></td>
+    </tr>
+    <% }); %>    
+</table>
+
+
