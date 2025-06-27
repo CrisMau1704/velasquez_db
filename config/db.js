@@ -11,13 +11,7 @@ connection.connect((error) => {
         console.log("No se logró conectar:", error);
     } else {
         console.log("Se logró conectar:", error);
-        const consulta = 'SELECT * FROM camion';
-        connection.query(consulta, (err, resultado) => {
-            if (err) throw err;
-
-            console.log('Los datos obtenidos son:');
-            console.log(resultado);
-        });
+       
     }
 });
-module.exports = connection;asdasd
+module.exports = connection;

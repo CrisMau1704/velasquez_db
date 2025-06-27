@@ -1,20 +1,25 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const engine = require('ejs-mate');
 
-// Importar el router de camiones
+
 const camionRouter = require('./routes/camionRouter'); // Ajusta la ruta si es distinta
 
-// Configuración de EJS
+
+app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Middleware para leer datos
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Montar las rutas
+app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
+
 app.use('/', camionRouter); // MUY IMPORTANTE
+
 
 // Puerto
 const PORT = 3000;

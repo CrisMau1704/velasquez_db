@@ -1,3 +1,4 @@
+<% layout('index') %>
 <h1>CAMIONES NO UTILIZADOS</h1>
 <form method="GET" action="/reporte/camiones-no-utilizados">
     <label for="">fecha inicio</label>
@@ -6,9 +7,10 @@
     <label for="">fecha final</label>
     <input placeholder="ingrese fecha final" type="date" name="fechaFinal">
 
-    <button type="submit">Ver reporte</button>
+    <button type="submit" class="btn btn-primary">Ver reporte</button>
+    
 </form>
-<table>
+<table border="1">
     <tr>
         <th>Placa</th>
         <th>Max Peso</th>

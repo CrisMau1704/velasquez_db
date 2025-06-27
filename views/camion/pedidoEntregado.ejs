@@ -1,0 +1,48 @@
+<% layout('index') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Pedidos Entregados</h1>
+
+    <form method="GET" action="/reporte/pedido-entregado" class="row g-3 mb-4">
+        <div class="col-md-6">
+            <label for="fechaInicio" class="form-label">Fecha inicio</label>
+            <input type="date" name="fechaInicio" class="form-control" placeholder="Ingrese fecha inicio">
+        </div>
+        <div class="col-md-6">
+            <label for="fechaFinal" class="form-label">Fecha final</label>
+            <input type="date" name="fechaFinal" class="form-control" placeholder="Ingrese fecha final">
+        </div>
+        <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary">Ver reporte</button>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Fecha Entrega</th>
+                    <th>Pedido ID</th>
+                    <th>Peso (kg)</th>
+                    <th>Volumen (m³)</th>
+                    <th>Nombre Tienda</th>
+                    <th>Dirección</th>
+                    <th>Placa Camión</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% pedidos_entregado.forEach(p => { %>
+                    <tr>
+                        <td><%- p.fechaentrega %></td>
+                        <td><%- p.pedidoid %></td>
+                        <td><%- p.peso %></td>
+                        <td><%- p.volumen %></td>
+                        <td><%- p.nombre %></td>
+                        <td><%- p.direccion %></td>
+                        <td><%- p.placa %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>

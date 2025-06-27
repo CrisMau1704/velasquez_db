@@ -34,3 +34,15 @@ exports.reportePedidoPorCamion  = (req, res) => {
         res.render('camion/pedidosPorCamion', { pedidos: dato });
     });
 };
+
+exports.reportePedidoEntregado  = (req, res) => {
+    const {fechaInicio,fechaFinal} = req.query;
+    camionModel.obtenerPedidoEntregados(fechaInicio, fechaFinal, (err, dato) => {
+        if (err) {
+            console.log(err);
+           
+        }
+        console.log(dato);
+        res.render('camion/pedidoEntregado', { pedidos_entregado: dato });
+    });
+};
